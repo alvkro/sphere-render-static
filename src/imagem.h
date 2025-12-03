@@ -1,15 +1,21 @@
 #pragma once
-#include "pixel.h"
 #include <string>
+#include <iostream>
 using namespace std;
+
+struct Pixel {
+    int r, g, b;
+};
 
 class Imagem {
     private:
     int w, h;
-    Cor** MeasuresImg;
+    Pixel** MeasuresImg;
 
     public:
-    Imagem(int w, int h) {
+    Imagem(int larg, int alt) {
+        w = larg;
+        h = alt;
         criarImg();
     }
 
@@ -17,8 +23,9 @@ class Imagem {
         clearImg();
     }
 
-    void savePPM(string& arquivo);
-    Cor& operator()(int x, int y);
+
+    void savePPM(const string& arquivo);
+    Pixel& operator()(int x, int y);
     void clearImg();
     void criarImg();
 };

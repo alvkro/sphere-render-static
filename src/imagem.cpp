@@ -1,18 +1,16 @@
-#include "imagem.h"
 #include <fstream>
+#include "imagem.h"
 using namespace std;
 
-// Depois estudar o porquê Pixel não está acessando r, g e b...
-
-Cor& Imagem::operator()(int x, int y) {
+Pixel& Imagem::operator()(int x, int y) {
     return MeasuresImg[x][y];
 }
 
 // Constructor
 void Imagem::criarImg() {
-    MeasuresImg = new Cor*[w];
+    MeasuresImg = new Pixel*[w];
     for (int i = 0; i < w; i++) {
-        MeasuresImg[i] = new Cor[h];
+        MeasuresImg[i] = new Pixel[h];
     }
 }
 
@@ -24,18 +22,18 @@ void Imagem::clearImg() {
     delete[] MeasuresImg;
 }
 
-void Imagem::savePPM(string& arquivo) {
+void Imagem::savePPM(const string& arquivo) {
     ofstream ppm(arquivo);
 
     ppm << "P3\n";
     ppm << w << " " << h << "\n";
     ppm << "255\n";
 
-    for (int x = 0; x < w; x++) {
-        for (int y = 0; y < h; y++) {
-            Cor& p = MeasuresImg[x][y];
+    for (int y = 0; y < h; y++) {
+        for (int x = 0; x < w; x++) {
+            Pixel& p = MeasuresImg[x][y];
 
-            ppm << p.r << p.g << p.b << "\n";
+            ppm << p.r << " " << p.g << " " << p.b << "\n";
         }
     }
 }
