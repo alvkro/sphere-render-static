@@ -23,9 +23,11 @@ class Imagem {
         clearImg();
     }
 
-
     void savePPM(const string& arquivo);
     Pixel& operator()(int x, int y);
     void clearImg();
     void criarImg();
+    int getXc();
+    int getYc();
+    void createCircle(int tamanhoRaio);
 };
