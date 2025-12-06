@@ -47,26 +47,26 @@ int Imagem::getYc() {
     return h / 2; 
 }
 
+int Imagem::distCirculo(int x, int y) {
+    return sqrt(pow((x - getXc()), 2) + pow((y - getYc()), 2));
+}
+
 // Poderia otimizar essa função futuramente
 
 void Imagem::createCircle(int tamanhoRaio) {
-    int yc = getYc();
-    int xc = getXc();
     double percent = 1;
 
     for (int y = 0; y < h; y++) {
         for (int x = 0; x < w; x++) {
-            int distCirculo = pow((x - xc), 2) + pow((y - yc), 2);
-
-            if (distCirculo <= pow(tamanhoRaio, 2)) {
+            if (distCirculo(x, y) <= tamanhoRaio) {
                 // Vermelho
                 MeasuresImg[x][y].r = 255;
             }
             else {
-                // Branco
-                MeasuresImg[x][y].r = 255;
-                MeasuresImg[x][y].g = 255;
-                MeasuresImg[x][y].b = 255;
+                // Preto
+                MeasuresImg[x][y].r = 0;
+                MeasuresImg[x][y].g = 0;
+                MeasuresImg[x][y].b = 0;
             }
         }
     }
