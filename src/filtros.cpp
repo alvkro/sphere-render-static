@@ -30,3 +30,16 @@ void Imagem::sombreamento() { // tomar como referencia o xc e yc (?)
         }
     }
 }
+
+void Imagem::bordas(int tamanhoRaio, int thickBorda) {
+
+    for (int y = 0; y < h; y++) {
+        for (int x = 0; x < w; x++) {
+            if (tamanhoRaio - thickBorda <= distCirculo(x, y) && distCirculo(x, y) <= tamanhoRaio) {
+                MeasuresImg[x][y].r = 255;
+                MeasuresImg[x][y].g = 255;
+                MeasuresImg[x][y].b = 255;
+            }
+        }
+    }
+}
