@@ -52,6 +52,7 @@ int Imagem::getYc() {
 void Imagem::createCircle(int tamanhoRaio) {
     int yc = getYc();
     int xc = getXc();
+    double percent = 1;
 
     for (int y = 0; y < h; y++) {
         for (int x = 0; x < w; x++) {
@@ -70,15 +71,3 @@ void Imagem::createCircle(int tamanhoRaio) {
         }
     }
 }
-
-// Função experimental
-// void Imagem::alterarGradiente() {
-//     // Teste com a cor vermelha
-//     int increaseColor = 255;
-//     for (int y = 0; y < h; y++) {
-//         for (int x = 0; x < w; x++) {
-//             MeasuresImg[x][y].r = increaseColor;
-//             increaseColor *= 0.99999999999;
-//         }
-//     }
-// }

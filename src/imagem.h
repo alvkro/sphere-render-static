@@ -30,4 +30,6 @@ class Imagem {
     int getXc();
     int getYc();
     void createCircle(int tamanhoRaio);
+    void alterarGradiente(); // FUNÇÃO EXPERIMENTAL!!!
+    void sombreamento();
 };
