@@ -23,13 +23,19 @@ class Imagem {
         clearImg();
     }
 
+
+    // Imagem: 
     void savePPM(const string& arquivo);
     Pixel& operator()(int x, int y);
     void clearImg();
     void criarImg();
     int getXc();
     int getYc();
+    int distCirculo(int x, int y);
     void createCircle(int tamanhoRaio);
-    void alterarGradiente(); // FUNÇÃO EXPERIMENTAL!!!
+
+    // Filtros
+    void alterarGradiente();
     void sombreamento();
+    void bordas(int tamanhoRaio, int thickBorda);
 };
